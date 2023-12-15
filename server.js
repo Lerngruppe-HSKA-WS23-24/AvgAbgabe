@@ -8,7 +8,7 @@ server.use(jsonServer.bodyParser);
 
 // Validierungsfunktion, die jetzt direkt das Anfrage-Objekt verwendet
 function validateCandidateRequest(requestData) {
-  return requestData.salary > 100000;
+  return requestData.desired_salary > 100000;
 }
 
 // Route zur Validierung der Daten aus dem Formular
