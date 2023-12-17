@@ -1,4 +1,5 @@
 const jsonServer = require('json-server');
+const { cond } = require('lodash');
 const server = jsonServer.create();
 const router = jsonServer.router('db.json');
 const middlewares = jsonServer.defaults();
@@ -6,16 +7,19 @@ const middlewares = jsonServer.defaults();
 server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
-server.delete('/candidates/:c_id', (req, res) => {
-  const c_id = req.params.c_id;
-  const candidate = router.db.get('candidates').find({ c_id: c_id }).value();
-  if (candidate) {
-    router.db.get('candidates').remove({ c_id: c_id }).write();
-    res.status(200).json({ message: 'Kandidat erfolgreich gelöscht.' });
-  } else {
-    res.status(404).json({ message: 'Kandidat nicht gefunden.' });
-  }
-});
+server.delete('/candidates', (req, res) => {
+    const c_id = req.query.c_id; // Hier verwenden wir req.query.id anstelle von req.params.c_id
+    console.log(c_id);
+    const candidate = router.db.get('candidates').find({ c_id: c_id }).value();
+    console.log(candidate);
+    if (candidate) {
+      router.db.get('candidates').remove({ c_id: c_id }).write();
+      res.status(200).json({ message: 'Kandidat erfolgreich gelöscht.' });
+    } else {
+      res.status(404).json({ message: 'Kandidat nicht gefunden.' });
+    }
+  });
+  
 
 server.post('/employees', (req, res) => {
   const employee = req.body;
