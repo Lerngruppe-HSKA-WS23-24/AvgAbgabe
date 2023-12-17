@@ -8,10 +8,8 @@ server.use(middlewares);
 server.use(jsonServer.bodyParser);
 
 server.delete('/candidates', (req, res) => {
-    const c_id = req.query.c_id; // Hier verwenden wir req.query.id anstelle von req.params.c_id
-    console.log(c_id);
+    const c_id = parseInt(req.query.c_id); // Hier verwenden wir req.query.id anstelle von req.params.c_id
     const candidate = router.db.get('candidates').find({ c_id: c_id }).value();
-    console.log(candidate);
     if (candidate) {
       router.db.get('candidates').remove({ c_id: c_id }).write();
       res.status(200).json({ message: 'Kandidat erfolgreich gelöscht.' });
