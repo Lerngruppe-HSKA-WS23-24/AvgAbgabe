@@ -1,4 +1,4 @@
-//zum Teil durch ChatGPT generiert und Händisch verbessert
+//zum Teil durch ChatGPT generiert und händisch verbessert
 const ZB = require('zeebe-node')
 const dotenv = require('dotenv')
 
