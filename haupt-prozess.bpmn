@@ -1,0 +1,975 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:modeler="http://camunda.org/schema/modeler/1.0" xmlns:zeebe="http://camunda.org/schema/zeebe/1.0" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" id="Definitions_1" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Web Modeler" exporterVersion="e0907ac" modeler:executionPlatform="Camunda Cloud" modeler:executionPlatformVersion="8.4.0" camunda:diagramRelationId="d6276ecc-72d7-4cca-9145-d2e923b67664">
+  <bpmn:collaboration id="Collaboration_138yihip" name="Haupt-Prozess">
+    <bpmn:participant id="Participant_1j0dcab" name="Intern" processRef="Process_11xan49" />
+    <bpmn:participant id="Participant_1okl1ev" name="Kandidat" processRef="Process_13gghej" />
+    <bpmn:messageFlow id="Flow_16hmy1h" sourceRef="antwortSenden" targetRef="antwort" />
+    <bpmn:messageFlow id="Flow_19p0ck1" sourceRef="vertragSenden" targetRef="vertrag" />
+  </bpmn:collaboration>
+  <bpmn:message id="Message_29m26ee" name="Message_29m26ee" />
+  <bpmn:message id="Message_1f96pfl" name="Message_1f96pfl" />
+  <bpmn:process id="Process_11xan49" isExecutable="true">
+    <bpmn:extensionElements>
+      <zeebe:userTaskForm id="UserTaskForm_3iaktcp" />
+      <zeebe:userTaskForm id="UserTaskForm_114bkat">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "b135d21"
+  },
+  "schemaVersion": 13,
+  "id": "antrag-auf-genehmigung-der-einstellung-schicken-068esip",
+  "components": [
+    {
+      "text": "##### Personalinformationen",
+      "type": "text",
+      "id": "Subheading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_1",
+      "label": "Personalnummer der Antragssteller:in",
+      "validate": {
+        "minLength": 5,
+        "maxLength": 10,
+        "required": false
+      },
+      "key": "employeeId",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Abteilung der Antragssteller:in",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": false
+      },
+      "key": "department",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_3",
+      "label": "Vorname der Kandidat:in",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 30,
+        "required": false
+      },
+      "key": "firstName",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_4",
+      "label": "Name der Kandidat:in",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 30,
+        "required": true
+      },
+      "key": "surname",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      }
+    },
+    {
+      "values": [
+        {
+          "value": "Manager",
+          "label": "Manager"
+        },
+        {
+          "value": "Developer",
+          "label": "Developer"
+        },
+        {
+          "value": "Designer",
+          "label": "Designer"
+        },
+        {
+          "value": "Tester",
+          "label": "Tester"
+        }
+      ],
+      "type": "select",
+      "id": "Select_5",
+      "label": "geplante Rolle mit Optionen",
+      "validate": {
+        "required": false
+      },
+      "key": "plannedRole",
+      "layout": {
+        "row": "row_3",
+        "columns": null
+      }
+    },
+    {
+      "type": "number",
+      "id": "Number_6",
+      "label": "Gehalt",
+      "decimalDigits": 2,
+      "defaultValue": 3000,
+      "validate": {
+        "min": 2000,
+        "max": 10000,
+        "step": 100,
+        "required": false
+      },
+      "key": "salary",
+      "layout": {
+        "row": "row_4",
+        "columns": null
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="UserTaskForm_39gn2rs">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "e0907ac"
+  },
+  "schemaVersion": 14,
+  "id": "Form_0jza30f",
+  "components": [
+    {
+      "text": "### Employee Information",
+      "type": "text",
+      "id": "Heading_0",
+      "layout": {
+        "row": "Row_0xx6a57"
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_1",
+      "label": "Prename",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 30,
+        "required": true
+      },
+      "key": "prename",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      },
+      "readonly": true
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Surname",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 30,
+        "required": true
+      },
+      "key": "surname",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      },
+      "readonly": true
+    },
+    {
+      "subtype": "date",
+      "dateLabel": "Birthdate",
+      "type": "datetime",
+      "id": "Date_3",
+      "validate": {
+        "required": true
+      },
+      "key": "birthdate",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      },
+      "readonly": true
+    },
+    {
+      "type": "number",
+      "id": "Number_4",
+      "label": "Desired Salary",
+      "decimalDigits": 2,
+      "defaultValue": 50000,
+      "validate": {
+        "min": 20000,
+        "max": 100000,
+        "step": 1000,
+        "required": true
+      },
+      "key": "desiredSalary",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      },
+      "disabled": false,
+      "readonly": true
+    },
+    {
+      "values": [
+        {
+          "label": "Ok",
+          "value": "ok"
+        },
+        {
+          "label": "Not ok",
+          "value": "not_ok"
+        }
+      ],
+      "label": "Inhaltliche Prüfung",
+      "type": "radio",
+      "layout": {
+        "row": "Row_1823ckh",
+        "columns": null
+      },
+      "id": "Field_02d67as",
+      "key": "pruefung"
+    },
+    {
+      "action": "submit",
+      "label": "Bestätigen",
+      "type": "button",
+      "layout": {
+        "row": "Row_0ukm6qr",
+        "columns": null
+      },
+      "id": "Field_1pzmh2w"
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="UserTaskForm_0p9t8gn">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler2",
+    "version": "e0907ac"
+  },
+  "schemaVersion": 14,
+  "id": "form-1gyhfzm",
+  "components": [
+    {
+      "text": "##### Einstellung",
+      "type": "text",
+      "id": "Subheading_0",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      }
+    },
+    {
+      "values": [
+        {
+          "value": "yes",
+          "label": "Ja"
+        },
+        {
+          "value": "no",
+          "label": "Nein"
+        }
+      ],
+      "type": "radio",
+      "id": "Radio_1",
+      "label": "Yes or No",
+      "validate": {
+        "required": true
+      },
+      "key": "yesNo",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}</zeebe:userTaskForm>
+      <zeebe:userTaskForm id="UserTaskForm_1b31pdf">{
+  "executionPlatform": "Camunda Cloud",
+  "executionPlatformVersion": "8.3.0",
+  "exporter": {
+    "name": "Camunda Web Modeler",
+    "version": "e0907ac"
+  },
+  "schemaVersion": 14,
+  "id": "kandidaten-einstellen-1jmfxen",
+  "components": [
+    {
+      "type": "textfield",
+      "id": "Textfield_0",
+      "label": "Prename",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "prename",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      },
+      "disabled": false,
+      "readonly": true
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_1",
+      "label": "Surname",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "surname",
+      "layout": {
+        "row": "row_0",
+        "columns": null
+      },
+      "readonly": true
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_2",
+      "label": "Department",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "department",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "textfield",
+      "id": "Textfield_3",
+      "label": "Role",
+      "validate": {
+        "minLength": 2,
+        "maxLength": 50,
+        "required": true
+      },
+      "key": "role",
+      "layout": {
+        "row": "row_1",
+        "columns": null
+      }
+    },
+    {
+      "type": "number",
+      "id": "Number_4",
+      "label": "Salary",
+      "decimalDigits": 0,
+      "validate": {
+        "min": 1000,
+        "max": 100000,
+        "step": 100,
+        "required": true
+      },
+      "key": "salary",
+      "layout": {
+        "row": "row_2",
+        "columns": null
+      },
+      "readonly": true
+    }
+  ],
+  "generated": true,
+  "type": "default"
+}</zeebe:userTaskForm>
+    </bpmn:extensionElements>
+    <bpmn:exclusiveGateway id="Gateway_0op2qkd">
+      <bpmn:incoming>Flow_0kbam3b</bpmn:incoming>
+      <bpmn:outgoing>Flow_0619d85</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1gyppg2</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:userTask id="inhalt-pruefen" name="Inhaltiche Prüfung">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_39gn2rs" />
+        <zeebe:ioMapping>
+          <zeebe:output source="=pruefung" target="inhaltlichePruefung" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0x18aa0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kbam3b</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:userTask id="entscheidung" name="Über Einstellung entscheiden">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_0p9t8gn" />
+        <zeebe:ioMapping>
+          <zeebe:output source="=yesNo" target="yesNoOut" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0619d85</bpmn:incoming>
+      <bpmn:outgoing>Flow_0kufbdg</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_0ezzqgh">
+      <bpmn:incoming>Flow_0kufbdg</bpmn:incoming>
+      <bpmn:outgoing>Flow_1wph8i0</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0hr05yx</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_19kik58">
+      <bpmn:extensionElements />
+      <bpmn:incoming>Flow_1bjcor1</bpmn:incoming>
+      <bpmn:outgoing>Flow_0x18aa0</bpmn:outgoing>
+      <bpmn:outgoing>Flow_16j8zu4</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:eventBasedGateway id="Gateway_0bbuu0v">
+      <bpmn:incoming>Flow_0t39jrv</bpmn:incoming>
+      <bpmn:outgoing>Flow_13meis0</bpmn:outgoing>
+      <bpmn:outgoing>Flow_1e3dolm</bpmn:outgoing>
+    </bpmn:eventBasedGateway>
+    <bpmn:intermediateCatchEvent id="Event_09w60kb" name="2 Wochen keine Rückmeldung">
+      <bpmn:incoming>Flow_13meis0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0jfddwv</bpmn:outgoing>
+      <bpmn:timerEventDefinition id="TimerEventDefinition_0ry9c5d">
+        <bpmn:timeDuration xsi:type="bpmn:tFormalExpression">=PT15S </bpmn:timeDuration>
+      </bpmn:timerEventDefinition>
+    </bpmn:intermediateCatchEvent>
+    <bpmn:intermediateCatchEvent id="antwort" name="Kunden-Antwort">
+      <bpmn:extensionElements>
+        <zeebe:ioMapping>
+          <zeebe:output source="=&#34;ja&#34;" target="antwort" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1e3dolm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1edznqt</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1bn470d" messageRef="Message_3qnj606" />
+    </bpmn:intermediateCatchEvent>
+    <bpmn:exclusiveGateway id="Gateway_0ujzbd9">
+      <bpmn:incoming>Flow_1edznqt</bpmn:incoming>
+      <bpmn:outgoing>Flow_0iq54e6</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0c164po</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_1ue14ge">
+      <bpmn:incoming>Flow_16j8zu4</bpmn:incoming>
+      <bpmn:incoming>Flow_1gyppg2</bpmn:incoming>
+      <bpmn:outgoing>Flow_06l1foc</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:businessRuleTask id="Decision_1p6zjyw" name="formale Prüfung">
+      <bpmn:extensionElements>
+        <zeebe:calledDecision decisionId="Decision_1p6zjyw" resultVariable="result" />
+        <zeebe:taskHeaders>
+          <zeebe:header key="resultVariable" value="serverResponse" />
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+        <zeebe:ioMapping>
+          <zeebe:input source="=candidateInfo.body[1].desired_salary" target="salary" />
+          <zeebe:input source="=candidateInfo.body[1].birthdate" target="birthdate" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1oyid81</bpmn:incoming>
+      <bpmn:outgoing>Flow_1bjcor1</bpmn:outgoing>
+    </bpmn:businessRuleTask>
+    <bpmn:startEvent id="Event_1xvnuj6" name="geeigneter Kandidat wurde ausgewählt">
+      <bpmn:outgoing>Flow_0ts4ya2</bpmn:outgoing>
+    </bpmn:startEvent>
+    <bpmn:serviceTask id="info-abfrage" name="Informationen des Kandidaten&#10;abfragen" zeebe:modelerTemplate="io.camunda.connectors.HttpJson.v2" zeebe:modelerTemplateVersion="4" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjAzMzUgOC45OTk5N0MxNy4wMzM1IDEzLjQ0NzUgMTMuNDI4MSAxNy4wNTI5IDguOTgwNjUgMTcuMDUyOUM0LjUzMzE2IDE3LjA1MjkgMC45Mjc3NjUgMTMuNDQ3NSAwLjkyNzc2NSA4Ljk5OTk3QzAuOTI3NzY1IDQuNTUyNDggNC41MzMxNiAwLjk0NzA4MyA4Ljk4MDY1IDAuOTQ3MDgzQzEzLjQyODEgMC45NDcwODMgMTcuMDMzNSA0LjU1MjQ4IDE3LjAzMzUgOC45OTk5N1oiIGZpbGw9IiM1MDU1NjIiLz4KPHBhdGggZD0iTTQuOTMxMjYgMTQuMTU3MUw2Ljc4MTA2IDMuNzE0NzFIMTAuMTM3NUMxMS4xOTE3IDMuNzE0NzEgMTEuOTgyNCAzLjk4MzIzIDEyLjUwOTUgNC41MjAyN0MxMy4wNDY1IDUuMDQ3MzYgMTMuMzE1IDUuNzMzNTggMTMuMzE1IDYuNTc4OTJDMTMuMzE1IDcuNDQ0MTQgMTMuMDcxNCA4LjE1NTIyIDEyLjU4NDEgOC43MTIxNUMxMi4xMDY3IDkuMjU5MTMgMTEuNDU1MyA5LjYzNzA1IDEwLjYyOTggOS44NDU5TDEyLjA2MTkgMTQuMTU3MUgxMC4zMzE1TDkuMDMzNjQgMTAuMDI0OUg3LjI0MzUxTDYuNTEyNTQgMTQuMTU3MUg0LjkzMTI2Wk03LjQ5NzExIDguNTkyODFIOS4yNDI0OEM5Ljk5ODMyIDguNTkyODEgMTAuNTkwMSA4LjQyMzc0IDExLjAxNzcgOC4wODU2MUMxMS40NTUzIDcuNzM3NTMgMTEuNjc0MSA3LjI2NTEzIDExLjY3NDEgNi42Njg0MkMxMS42NzQxIDYuMTkxMDYgMTEuNTI0OSA1LjgxODExIDExLjIyNjUgNS41NDk1OUMxMC45MjgyIDUuMjcxMTMgMTAuNDU1OCA1LjEzMTkgOS44MDkzNiA1LjEzMTlIOC4xMDg3NEw3LjQ5NzExIDguNTkyODFaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="noAuth" target="authentication.type" />
+          <zeebe:input source="GET" target="method" />
+          <zeebe:input source="https://ca87-185-52-247-42.ngrok-free.app/candidates" target="url" />
+          <zeebe:input source="={surname: surname}" target="queryParameters" />
+          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="resultVariable" value="candidateInfo" />
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0gxijvf</bpmn:incoming>
+      <bpmn:outgoing>Flow_0h9ipg6</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="antrag-stellung" name="Antrag auf Genehmigung der Einstellung schicken">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_114bkat" />
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0ts4ya2</bpmn:incoming>
+      <bpmn:incoming>Flow_1lb7okp</bpmn:incoming>
+      <bpmn:outgoing>Flow_0gxijvf</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_09jyldd">
+      <bpmn:incoming>Flow_0h9ipg6</bpmn:incoming>
+      <bpmn:outgoing>Flow_1oyid81</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0d7zsdu</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:exclusiveGateway id="Gateway_04hj14c">
+      <bpmn:incoming>Flow_06l1foc</bpmn:incoming>
+      <bpmn:incoming>Flow_0d7zsdu</bpmn:incoming>
+      <bpmn:outgoing>Flow_1lb7okp</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_06t60to" name="Einstellungsprozess beendet">
+      <bpmn:incoming>Flow_1u8os1s</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:exclusiveGateway id="Gateway_05fs2kr">
+      <bpmn:incoming>Flow_06i4t0m</bpmn:incoming>
+      <bpmn:incoming>Flow_0urvebm</bpmn:incoming>
+      <bpmn:outgoing>Flow_1u8os1s</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:serviceTask id="Activity_1b7f7qn" name="Kandidaten ablehnen" zeebe:modelerTemplate="io.camunda.connectors.HttpJson.v2" zeebe:modelerTemplateVersion="5" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjAzMzUgOC45OTk5N0MxNy4wMzM1IDEzLjQ0NzUgMTMuNDI4MSAxNy4wNTI5IDguOTgwNjUgMTcuMDUyOUM0LjUzMzE2IDE3LjA1MjkgMC45Mjc3NjUgMTMuNDQ3NSAwLjkyNzc2NSA4Ljk5OTk3QzAuOTI3NzY1IDQuNTUyNDggNC41MzMxNiAwLjk0NzA4MyA4Ljk4MDY1IDAuOTQ3MDgzQzEzLjQyODEgMC45NDcwODMgMTcuMDMzNSA0LjU1MjQ4IDE3LjAzMzUgOC45OTk5N1oiIGZpbGw9IiM1MDU1NjIiLz4KPHBhdGggZD0iTTQuOTMxMjYgMTQuMTU3MUw2Ljc4MTA2IDMuNzE0NzFIMTAuMTM3NUMxMS4xOTE3IDMuNzE0NzEgMTEuOTgyNCAzLjk4MzIzIDEyLjUwOTUgNC41MjAyN0MxMy4wNDY1IDUuMDQ3MzYgMTMuMzE1IDUuNzMzNTggMTMuMzE1IDYuNTc4OTJDMTMuMzE1IDcuNDQ0MTQgMTMuMDcxNCA4LjE1NTIyIDEyLjU4NDEgOC43MTIxNUMxMi4xMDY3IDkuMjU5MTMgMTEuNDU1MyA5LjYzNzA1IDEwLjYyOTggOS44NDU5TDEyLjA2MTkgMTQuMTU3MUgxMC4zMzE1TDkuMDMzNjQgMTAuMDI0OUg3LjI0MzUxTDYuNTEyNTQgMTQuMTU3MUg0LjkzMTI2Wk03LjQ5NzExIDguNTkyODFIOS4yNDI0OEM5Ljk5ODMyIDguNTkyODEgMTAuNTkwMSA4LjQyMzc0IDExLjAxNzcgOC4wODU2MUMxMS40NTUzIDcuNzM3NTMgMTEuNjc0MSA3LjI2NTEzIDExLjY3NDEgNi42Njg0MkMxMS42NzQxIDYuMTkxMDYgMTEuNTI0OSA1LjgxODExIDExLjIyNjUgNS41NDk1OUMxMC45MjgyIDUuMjcxMTMgMTAuNDU1OCA1LjEzMTkgOS44MDkzNiA1LjEzMTlIOC4xMDg3NEw3LjQ5NzExIDguNTkyODFaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="noAuth" target="authentication.type" />
+          <zeebe:input source="DELETE" target="method" />
+          <zeebe:input source="https://ca87-185-52-247-42.ngrok-free.app/candidates" target="url" />
+          <zeebe:input source="={c_id: candidateInfo.body[1].c_id}" target="queryParameters" />
+          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0hr05yx</bpmn:incoming>
+      <bpmn:incoming>Flow_0jfddwv</bpmn:incoming>
+      <bpmn:incoming>Flow_0iq54e6</bpmn:incoming>
+      <bpmn:outgoing>Flow_06i4t0m</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:userTask id="einstellen" name="Kandidaten einstellen">
+      <bpmn:extensionElements>
+        <zeebe:formDefinition formKey="camunda-forms:bpmn:UserTaskForm_1b31pdf" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=candidateInfo.body[0].prename" target="prename" />
+          <zeebe:input source="=candidateInfo.body[0].surname" target="surname" />
+          <zeebe:input source="=candidateInfo.body[0].desired_salary" target="salary" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0c164po</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fnrf8g</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:serviceTask id="Activity_095dhem" name="Mitarbeiter erstellen" zeebe:modelerTemplate="io.camunda.connectors.HttpJson.v2" zeebe:modelerTemplateVersion="4" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjAzMzUgOC45OTk5N0MxNy4wMzM1IDEzLjQ0NzUgMTMuNDI4MSAxNy4wNTI5IDguOTgwNjUgMTcuMDUyOUM0LjUzMzE2IDE3LjA1MjkgMC45Mjc3NjUgMTMuNDQ3NSAwLjkyNzc2NSA4Ljk5OTk3QzAuOTI3NzY1IDQuNTUyNDggNC41MzMxNiAwLjk0NzA4MyA4Ljk4MDY1IDAuOTQ3MDgzQzEzLjQyODEgMC45NDcwODMgMTcuMDMzNSA0LjU1MjQ4IDE3LjAzMzUgOC45OTk5N1oiIGZpbGw9IiM1MDU1NjIiLz4KPHBhdGggZD0iTTQuOTMxMjYgMTQuMTU3MUw2Ljc4MTA2IDMuNzE0NzFIMTAuMTM3NUMxMS4xOTE3IDMuNzE0NzEgMTEuOTgyNCAzLjk4MzIzIDEyLjUwOTUgNC41MjAyN0MxMy4wNDY1IDUuMDQ3MzYgMTMuMzE1IDUuNzMzNTggMTMuMzE1IDYuNTc4OTJDMTMuMzE1IDcuNDQ0MTQgMTMuMDcxNCA4LjE1NTIyIDEyLjU4NDEgOC43MTIxNUMxMi4xMDY3IDkuMjU5MTMgMTEuNDU1MyA5LjYzNzA1IDEwLjYyOTggOS44NDU5TDEyLjA2MTkgMTQuMTU3MUgxMC4zMzE1TDkuMDMzNjQgMTAuMDI0OUg3LjI0MzUxTDYuNTEyNTQgMTQuMTU3MUg0LjkzMTI2Wk03LjQ5NzExIDguNTkyODFIOS4yNDI0OEM5Ljk5ODMyIDguNTkyODEgMTAuNTkwMSA4LjQyMzc0IDExLjAxNzcgOC4wODU2MUMxMS40NTUzIDcuNzM3NTMgMTEuNjc0MSA3LjI2NTEzIDExLjY3NDEgNi42Njg0MkMxMS42NzQxIDYuMTkxMDYgMTEuNTI0OSA1LjgxODExIDExLjIyNjUgNS41NDk1OUMxMC45MjgyIDUuMjcxMTMgMTAuNDU1OCA1LjEzMTkgOS44MDkzNiA1LjEzMTlIOC4xMDg3NEw3LjQ5NzExIDguNTkyODFaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="noAuth" target="authentication.type" />
+          <zeebe:input source="POST" target="method" />
+          <zeebe:input source="https://ca87-185-52-247-42.ngrok-free.app/candidates?surname=Mayor" target="url" />
+          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
+          <zeebe:input source="={&#10;  &#34;prename&#34;: employment.prename,&#10;  &#34;surname&#34;: employment.surname,&#10;  &#34;departement&#34;: employment.department,&#10;  &#34;role&#34;: employment.role,&#10;  &#34;salary&#34;: employment.salary&#10;}" target="body" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1fnrf8g</bpmn:incoming>
+      <bpmn:outgoing>Flow_18j6rmk</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:serviceTask id="Activity_1p4wngp" name="Bewerber löschen" zeebe:modelerTemplate="io.camunda.connectors.HttpJson.v2" zeebe:modelerTemplateVersion="5" zeebe:modelerTemplateIcon="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgiIGhlaWdodD0iMTgiIHZpZXdCb3g9IjAgMCAxOCAxOCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTE3LjAzMzUgOC45OTk5N0MxNy4wMzM1IDEzLjQ0NzUgMTMuNDI4MSAxNy4wNTI5IDguOTgwNjUgMTcuMDUyOUM0LjUzMzE2IDE3LjA1MjkgMC45Mjc3NjUgMTMuNDQ3NSAwLjkyNzc2NSA4Ljk5OTk3QzAuOTI3NzY1IDQuNTUyNDggNC41MzMxNiAwLjk0NzA4MyA4Ljk4MDY1IDAuOTQ3MDgzQzEzLjQyODEgMC45NDcwODMgMTcuMDMzNSA0LjU1MjQ4IDE3LjAzMzUgOC45OTk5N1oiIGZpbGw9IiM1MDU1NjIiLz4KPHBhdGggZD0iTTQuOTMxMjYgMTQuMTU3MUw2Ljc4MTA2IDMuNzE0NzFIMTAuMTM3NUMxMS4xOTE3IDMuNzE0NzEgMTEuOTgyNCAzLjk4MzIzIDEyLjUwOTUgNC41MjAyN0MxMy4wNDY1IDUuMDQ3MzYgMTMuMzE1IDUuNzMzNTggMTMuMzE1IDYuNTc4OTJDMTMuMzE1IDcuNDQ0MTQgMTMuMDcxNCA4LjE1NTIyIDEyLjU4NDEgOC43MTIxNUMxMi4xMDY3IDkuMjU5MTMgMTEuNDU1MyA5LjYzNzA1IDEwLjYyOTggOS44NDU5TDEyLjA2MTkgMTQuMTU3MUgxMC4zMzE1TDkuMDMzNjQgMTAuMDI0OUg3LjI0MzUxTDYuNTEyNTQgMTQuMTU3MUg0LjkzMTI2Wk03LjQ5NzExIDguNTkyODFIOS4yNDI0OEM5Ljk5ODMyIDguNTkyODEgMTAuNTkwMSA4LjQyMzc0IDExLjAxNzcgOC4wODU2MUMxMS40NTUzIDcuNzM3NTMgMTEuNjc0MSA3LjI2NTEzIDExLjY3NDEgNi42Njg0MkMxMS42NzQxIDYuMTkxMDYgMTEuNTI0OSA1LjgxODExIDExLjIyNjUgNS41NDk1OUMxMC45MjgyIDUuMjcxMTMgMTAuNDU1OCA1LjEzMTkgOS44MDkzNiA1LjEzMTlIOC4xMDg3NEw3LjQ5NzExIDguNTkyODFaIiBmaWxsPSJ3aGl0ZSIvPgo8L3N2Zz4K">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="io.camunda:http-json:1" />
+        <zeebe:ioMapping>
+          <zeebe:input source="noAuth" target="authentication.type" />
+          <zeebe:input source="DELETE" target="method" />
+          <zeebe:input source="https://ca87-185-52-247-42.ngrok-free.app/candidates" target="url" />
+          <zeebe:input source="={c_id: candidateInfo.body[1].c_id}" target="queryParameters" />
+          <zeebe:input source="20" target="connectionTimeoutInSeconds" />
+        </zeebe:ioMapping>
+        <zeebe:taskHeaders>
+          <zeebe:header key="retryBackoff" value="PT0S" />
+        </zeebe:taskHeaders>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_18j6rmk</bpmn:incoming>
+      <bpmn:outgoing>Flow_0urvebm</bpmn:outgoing>
+    </bpmn:serviceTask>
+    <bpmn:sendTask id="vertragSenden" name="Vertrag senden">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="vertragSenden" retries="3" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=candidateInfo.body[1].c_id" target="candidateId" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1wph8i0</bpmn:incoming>
+      <bpmn:outgoing>Flow_0t39jrv</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="Flow_0kbam3b" sourceRef="inhalt-pruefen" targetRef="Gateway_0op2qkd" />
+    <bpmn:sequenceFlow id="Flow_0619d85" name="In Ordnung" sourceRef="Gateway_0op2qkd" targetRef="entscheidung">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=inhaltlichePruefung.pruefung = "ok"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1gyppg2" name="Nicht in Ordnung" sourceRef="Gateway_0op2qkd" targetRef="Gateway_1ue14ge">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=inhaltlichePruefung.pruefung = "not_ok"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0x18aa0" name="In Ordnung" sourceRef="Gateway_19kik58" targetRef="inhalt-pruefen">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=result = "ok"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0kufbdg" sourceRef="entscheidung" targetRef="Gateway_0ezzqgh" />
+    <bpmn:sequenceFlow id="Flow_0hr05yx" name="Nicht einstellen" sourceRef="Gateway_0ezzqgh" targetRef="Activity_1b7f7qn">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=yesNoOut.yesNo = "no"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1wph8i0" name="einstellen" sourceRef="Gateway_0ezzqgh" targetRef="vertragSenden">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=yesNoOut.yesNo = "yes"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1bjcor1" sourceRef="Decision_1p6zjyw" targetRef="Gateway_19kik58" />
+    <bpmn:sequenceFlow id="Flow_16j8zu4" name="Nicht in Ordnung" sourceRef="Gateway_19kik58" targetRef="Gateway_1ue14ge">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=result = "not_ok"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0t39jrv" sourceRef="vertragSenden" targetRef="Gateway_0bbuu0v" />
+    <bpmn:sequenceFlow id="Flow_13meis0" sourceRef="Gateway_0bbuu0v" targetRef="Event_09w60kb" />
+    <bpmn:sequenceFlow id="Flow_1e3dolm" sourceRef="Gateway_0bbuu0v" targetRef="antwort" />
+    <bpmn:sequenceFlow id="Flow_0jfddwv" sourceRef="Event_09w60kb" targetRef="Activity_1b7f7qn" />
+    <bpmn:sequenceFlow id="Flow_1edznqt" sourceRef="antwort" targetRef="Gateway_0ujzbd9" />
+    <bpmn:sequenceFlow id="Flow_0iq54e6" name="Absage" sourceRef="Gateway_0ujzbd9" targetRef="Activity_1b7f7qn">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=antwort = "nein"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0c164po" name="Zusage" sourceRef="Gateway_0ujzbd9" targetRef="einstellen">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=antwort = "ja"</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_06l1foc" sourceRef="Gateway_1ue14ge" targetRef="Gateway_04hj14c">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=true</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1oyid81" name="Kandidat gefunden" sourceRef="Gateway_09jyldd" targetRef="Decision_1p6zjyw">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=length(candidateInfo.body) &gt; 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_0ts4ya2" sourceRef="Event_1xvnuj6" targetRef="antrag-stellung" />
+    <bpmn:sequenceFlow id="Flow_0gxijvf" sourceRef="antrag-stellung" targetRef="info-abfrage" />
+    <bpmn:sequenceFlow id="Flow_0h9ipg6" sourceRef="info-abfrage" targetRef="Gateway_09jyldd" />
+    <bpmn:sequenceFlow id="Flow_1lb7okp" sourceRef="Gateway_04hj14c" targetRef="antrag-stellung" />
+    <bpmn:sequenceFlow id="Flow_0d7zsdu" name="Kein Kandidat gefunden" sourceRef="Gateway_09jyldd" targetRef="Gateway_04hj14c">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">=length(candidateInfo.body) = 0</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:sequenceFlow id="Flow_1u8os1s" sourceRef="Gateway_05fs2kr" targetRef="Event_06t60to" />
+    <bpmn:sequenceFlow id="Flow_06i4t0m" sourceRef="Activity_1b7f7qn" targetRef="Gateway_05fs2kr" />
+    <bpmn:sequenceFlow id="Flow_0urvebm" sourceRef="Activity_1p4wngp" targetRef="Gateway_05fs2kr" />
+    <bpmn:sequenceFlow id="Flow_1fnrf8g" sourceRef="einstellen" targetRef="Activity_095dhem" />
+    <bpmn:sequenceFlow id="Flow_18j6rmk" sourceRef="Activity_095dhem" targetRef="Activity_1p4wngp" />
+  </bpmn:process>
+  <bpmn:process id="Process_13gghej" isExecutable="true">
+    <bpmn:endEvent id="Event_144flx6">
+      <bpmn:incoming>Flow_1fzwxm3</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:startEvent id="vertrag" name="vertrag ist angekommen">
+      <bpmn:extensionElements />
+      <bpmn:outgoing>Flow_1b64f7d</bpmn:outgoing>
+      <bpmn:messageEventDefinition id="MessageEventDefinition_1l03hhi" messageRef="Message_360ln9i" />
+    </bpmn:startEvent>
+    <bpmn:sendTask id="antwortSenden" name="Antwort senden">
+      <bpmn:extensionElements>
+        <zeebe:taskDefinition type="antwortSenden" retries="3" />
+        <zeebe:ioMapping>
+          <zeebe:input source="=&#34;ja&#34;" target="antwort" />
+        </zeebe:ioMapping>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_1b64f7d</bpmn:incoming>
+      <bpmn:outgoing>Flow_1fzwxm3</bpmn:outgoing>
+    </bpmn:sendTask>
+    <bpmn:sequenceFlow id="Flow_1fzwxm3" sourceRef="antwortSenden" targetRef="Event_144flx6" />
+    <bpmn:sequenceFlow id="Flow_1b64f7d" sourceRef="vertrag" targetRef="antwortSenden" />
+  </bpmn:process>
+  <bpmn:message id="Message_0vd7ffo" name="vertrag" />
+  <bpmn:message id="Message_360ln9i" name="vertragErhalten">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=antwort" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmn:message id="Message_3qnj606" name="antwortErhalten">
+    <bpmn:extensionElements>
+      <zeebe:subscription correlationKey="=antwort" />
+    </bpmn:extensionElements>
+  </bpmn:message>
+  <bpmndi:BPMNDiagram id="BPMNDiagram_1">
+    <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="Collaboration_138yihip">
+      <bpmndi:BPMNShape id="Participant_1j0dcab_di" bpmnElement="Participant_1j0dcab" isHorizontal="true">
+        <dc:Bounds x="150" y="80" width="2490" height="510" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1is51i2" bpmnElement="Gateway_0op2qkd" isMarkerVisible="true">
+        <dc:Bounds x="1335" y="285" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1b99lrp_di" bpmnElement="inhalt-pruefen">
+        <dc:Bounds x="1200" y="270" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0072h6v_di" bpmnElement="entscheidung">
+        <dc:Bounds x="1380" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_148w1nf" bpmnElement="Gateway_0ezzqgh" isMarkerVisible="true">
+        <dc:Bounds x="1525" y="205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1pghyc0" bpmnElement="Gateway_19kik58" isMarkerVisible="true">
+        <dc:Bounds x="1075" y="285" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1q4gwkr" bpmnElement="Gateway_0bbuu0v">
+        <dc:Bounds x="1785" y="205" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0zk57ll" bpmnElement="Event_09w60kb">
+        <dc:Bounds x="1882" y="212" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1862" y="186" width="78" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_187bh29" bpmnElement="antwort">
+        <dc:Bounds x="1882" y="352" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1861" y="322" width="82" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0xoiw1d" bpmnElement="Gateway_0ujzbd9" isMarkerVisible="true">
+        <dc:Bounds x="1955" y="345" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_03wl8dz" bpmnElement="Gateway_1ue14ge" isMarkerVisible="true">
+        <dc:Bounds x="1075" y="475" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_0ain5k4_di" bpmnElement="Decision_1p6zjyw">
+        <dc:Bounds x="920" y="270" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0khog7r" bpmnElement="Event_1xvnuj6">
+        <dc:Bounds x="192" y="292" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="174" y="335" width="78" height="40" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1b4oxhz" bpmnElement="info-abfrage">
+        <dc:Bounds x="460" y="270" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_07pfqpm" bpmnElement="antrag-stellung">
+        <dc:Bounds x="280" y="270" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0vf1qat" bpmnElement="Gateway_09jyldd" isMarkerVisible="true">
+        <dc:Bounds x="655" y="285" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0l91b11" bpmnElement="Gateway_04hj14c" isMarkerVisible="true">
+        <dc:Bounds x="655" y="475" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_124g0x6" bpmnElement="Event_06t60to">
+        <dc:Bounds x="2572" y="352" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="2551" y="395" width="80" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1gok5pl" bpmnElement="Gateway_05fs2kr" isMarkerVisible="true">
+        <dc:Bounds x="2465" y="345" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1fg0n76_di" bpmnElement="Activity_1b7f7qn">
+        <dc:Bounds x="2110" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0yiobp5" bpmnElement="einstellen">
+        <dc:Bounds x="2040" y="440" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1b4a4y1" bpmnElement="Activity_095dhem">
+        <dc:Bounds x="2190" y="440" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0bf9rib" bpmnElement="Activity_1p4wngp">
+        <dc:Bounds x="2340" y="440" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_00kwx5t_di" bpmnElement="vertragSenden">
+        <dc:Bounds x="1650" y="190" width="100" height="80" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_0kbam3b_di" bpmnElement="Flow_0kbam3b">
+        <di:waypoint x="1300" y="310" />
+        <di:waypoint x="1335" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0619d85_di" bpmnElement="Flow_0619d85">
+        <di:waypoint x="1360" y="285" />
+        <di:waypoint x="1360" y="230" />
+        <di:waypoint x="1380" y="230" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1303" y="255" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1gyppg2_di" bpmnElement="Flow_1gyppg2">
+        <di:waypoint x="1360" y="335" />
+        <di:waypoint x="1360" y="500" />
+        <di:waypoint x="1130" y="500" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1279" y="427" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0x18aa0_di" bpmnElement="Flow_0x18aa0">
+        <di:waypoint x="1125" y="310" />
+        <di:waypoint x="1200" y="310" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1136" y="292" width="54" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0kufbdg_di" bpmnElement="Flow_0kufbdg">
+        <di:waypoint x="1480" y="230" />
+        <di:waypoint x="1525" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0hr05yx_di" bpmnElement="Flow_0hr05yx">
+        <di:waypoint x="1550" y="205" />
+        <di:waypoint x="1550" y="140" />
+        <di:waypoint x="2160" y="140" />
+        <di:waypoint x="2160" y="190" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1819" y="122" width="73" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1wph8i0_di" bpmnElement="Flow_1wph8i0">
+        <di:waypoint x="1575" y="230" />
+        <di:waypoint x="1650" y="230" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1591" y="212" width="46" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1bjcor1_di" bpmnElement="Flow_1bjcor1">
+        <di:waypoint x="1020" y="310" />
+        <di:waypoint x="1075" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16j8zu4_di" bpmnElement="Flow_16j8zu4">
+        <di:waypoint x="1100" y="335" />
+        <di:waypoint x="1100" y="475" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1009" y="383" width="81" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0t39jrv_di" bpmnElement="Flow_0t39jrv">
+        <di:waypoint x="1750" y="230" />
+        <di:waypoint x="1785" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_13meis0_di" bpmnElement="Flow_13meis0">
+        <di:waypoint x="1835" y="230" />
+        <di:waypoint x="1882" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1e3dolm_di" bpmnElement="Flow_1e3dolm">
+        <di:waypoint x="1810" y="255" />
+        <di:waypoint x="1810" y="370" />
+        <di:waypoint x="1882" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0jfddwv_di" bpmnElement="Flow_0jfddwv">
+        <di:waypoint x="1918" y="230" />
+        <di:waypoint x="2110" y="230" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1edznqt_di" bpmnElement="Flow_1edznqt">
+        <di:waypoint x="1918" y="370" />
+        <di:waypoint x="1955" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0iq54e6_di" bpmnElement="Flow_0iq54e6">
+        <di:waypoint x="1980" y="345" />
+        <di:waypoint x="1980" y="260" />
+        <di:waypoint x="2110" y="260" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1941" y="300" width="39" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0c164po_di" bpmnElement="Flow_0c164po">
+        <di:waypoint x="1980" y="395" />
+        <di:waypoint x="1980" y="480" />
+        <di:waypoint x="2040" y="480" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1942" y="435" width="38" height="14" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06l1foc_di" bpmnElement="Flow_06l1foc">
+        <di:waypoint x="1075" y="500" />
+        <di:waypoint x="705" y="500" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1oyid81_di" bpmnElement="Flow_1oyid81">
+        <di:waypoint x="705" y="310" />
+        <di:waypoint x="920" y="310" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="797" y="276" width="47" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ts4ya2_di" bpmnElement="Flow_0ts4ya2">
+        <di:waypoint x="228" y="310" />
+        <di:waypoint x="280" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0gxijvf_di" bpmnElement="Flow_0gxijvf">
+        <di:waypoint x="380" y="310" />
+        <di:waypoint x="460" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0h9ipg6_di" bpmnElement="Flow_0h9ipg6">
+        <di:waypoint x="560" y="310" />
+        <di:waypoint x="655" y="310" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1lb7okp_di" bpmnElement="Flow_1lb7okp">
+        <di:waypoint x="655" y="500" />
+        <di:waypoint x="330" y="500" />
+        <di:waypoint x="330" y="350" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0d7zsdu_di" bpmnElement="Flow_0d7zsdu">
+        <di:waypoint x="680" y="335" />
+        <di:waypoint x="680" y="475" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="686" y="395" width="67" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1u8os1s_di" bpmnElement="Flow_1u8os1s">
+        <di:waypoint x="2515" y="370" />
+        <di:waypoint x="2572" y="370" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06i4t0m_di" bpmnElement="Flow_06i4t0m">
+        <di:waypoint x="2210" y="230" />
+        <di:waypoint x="2490" y="230" />
+        <di:waypoint x="2490" y="345" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0urvebm_di" bpmnElement="Flow_0urvebm">
+        <di:waypoint x="2440" y="480" />
+        <di:waypoint x="2490" y="480" />
+        <di:waypoint x="2490" y="395" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1fnrf8g_di" bpmnElement="Flow_1fnrf8g">
+        <di:waypoint x="2140" y="480" />
+        <di:waypoint x="2190" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_18j6rmk_di" bpmnElement="Flow_18j6rmk">
+        <di:waypoint x="2290" y="480" />
+        <di:waypoint x="2340" y="480" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="BPMNShape_1ibivjm" bpmnElement="Participant_1okl1ev" isHorizontal="true">
+        <dc:Bounds x="1640" y="790" width="440" height="250" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_144flx6_di" bpmnElement="Event_144flx6">
+        <dc:Bounds x="2012" y="892" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0c04ac3_di" bpmnElement="vertrag">
+        <dc:Bounds x="1692" y="892" width="36" height="36" />
+        <bpmndi:BPMNLabel>
+          <dc:Bounds x="1682" y="935" width="64" height="27" />
+        </bpmndi:BPMNLabel>
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_15roju0_di" bpmnElement="antwortSenden">
+        <dc:Bounds x="1820" y="870" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1fzwxm3_di" bpmnElement="Flow_1fzwxm3">
+        <di:waypoint x="1920" y="910" />
+        <di:waypoint x="2012" y="910" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="BPMNEdge_1ln6jjg" bpmnElement="Flow_1b64f7d">
+        <di:waypoint x="1728" y="910" />
+        <di:waypoint x="1820" y="910" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_16hmy1h_di" bpmnElement="Flow_16hmy1h">
+        <di:waypoint x="1900" y="870" />
+        <di:waypoint x="1900" y="388" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_19p0ck1_di" bpmnElement="Flow_19p0ck1">
+        <di:waypoint x="1710" y="270" />
+        <di:waypoint x="1710" y="892" />
+      </bpmndi:BPMNEdge>
+    </bpmndi:BPMNPlane>
+  </bpmndi:BPMNDiagram>
+</bpmn:definitions>
